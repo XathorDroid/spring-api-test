@@ -1,5 +1,7 @@
 package com.xathordroid.springapitest;
 
+import com.xathordroid.springapitest.entity.Customer;
+import com.xathordroid.springapitest.repository.CustomerRepository;
 import com.xathordroid.springapitest.resource.domain.RandomApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +46,41 @@ public class SpringApiTestApplication {
 		return args -> {
 			RandomApi randomApi = restTemplate.getForObject("https://api.publicapis.org/random?auth=null", RandomApi.class);
 			log.info(randomApi.toString());
+		};
+	}
+	
+	@Bean
+	public CommandLineRunner demoJpa(CustomerRepository repository) {
+		return args -> {
+			// save new customers in DB
+			repository.save(new Customer("Jack", "Bauer"));
+			repository.save(new Customer("Chloe", "O'Brian"));
+			repository.save(new Customer("Kim", "Bauer"));
+			repository.save(new Customer("David", "Palmer"));
+			repository.save(new Customer("Michelle", "Dessler"));
+			
+			// load all customers from DB
+			log.info("Customers found with findAll():");
+			log.info("-------------------------------");
+			for (Customer customer : repository.findAll()) {
+				log.info(customer.toString());
+			}
+			log.info("");
+			
+			// load a specific customer from DB by ID
+			Customer customer = repository.findById(1L);
+			log.info("Customer found with findById(1L):");
+			log.info("---------------------------------");
+			log.info(customer.toString());
+			log.info("");
+			
+			// load customers from DB by lastName
+			log.info("Customer found with findByLastName('Bauer'):");
+			log.info("--------------------------------------------");
+			repository.findByLastName("Bauer").forEach(bauer -> {
+				log.info(bauer.toString());
+			});
+			log.info("");
 		};
 	}
 }
