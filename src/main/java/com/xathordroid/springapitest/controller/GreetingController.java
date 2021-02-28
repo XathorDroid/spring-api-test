@@ -1,6 +1,6 @@
 package com.xathordroid.springapitest.controller;
 
-import com.xathordroid.springapitest.resource.Greeting;
+import com.xathordroid.springapitest.resource.response.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

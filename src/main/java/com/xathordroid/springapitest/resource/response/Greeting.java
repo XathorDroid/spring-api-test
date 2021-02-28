@@ -1,4 +1,4 @@
-package com.xathordroid.springapitest.resource;
+package com.xathordroid.springapitest.resource.response;
 
 public class Greeting {
     
