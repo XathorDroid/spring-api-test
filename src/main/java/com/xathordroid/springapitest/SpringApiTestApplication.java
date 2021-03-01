@@ -23,7 +23,7 @@ public class SpringApiTestApplication {
 	private static final boolean ENABLE_COMMAND_LINE_RUNNER_LIST_BEANS = false;
 	private static final boolean ENABLE_COMMAND_LINE_RUNNER_CONSUME_REST = false;
 	private static final boolean ENABLE_COMMAND_LINE_RUNNER_DEMO_JPA_1 = false;
-	private static final boolean ENABLE_COMMAND_LINE_RUNNER_DEMO_JPA_2 = true;
+	private static final boolean ENABLE_COMMAND_LINE_RUNNER_DEMO_JPA_2 = false;
 
 	private static final Logger log = LoggerFactory.getLogger(SpringApiTestApplication.class); 
 	
