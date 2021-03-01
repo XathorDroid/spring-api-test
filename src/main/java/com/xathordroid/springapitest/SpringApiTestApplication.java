@@ -107,8 +107,8 @@ public class SpringApiTestApplication {
 	public CommandLineRunner initDatabase(EmployeeRepository repository) {
 		if (ENABLE_COMMAND_LINE_RUNNER_DEMO_JPA_2)
 			return args -> {
-				log.info("Preloading " + repository.save(new Employee("Bilbo Baggins", "burglar")));
-				log.info("Preloading " + repository.save(new Employee("Frodo Baggins", "thief")));
+				log.info("Preloading " + repository.save(new Employee("Bilbo", "Baggins", "burglar")));
+				log.info("Preloading " + repository.save(new Employee("Frodo", "Baggins", "thief")));
 			};
 		else
 			return null;
