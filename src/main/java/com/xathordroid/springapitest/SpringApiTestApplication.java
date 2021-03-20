@@ -1,9 +1,7 @@
 package com.xathordroid.springapitest;
 
 import com.xathordroid.springapitest.entity.Customer;
-import com.xathordroid.springapitest.entity.Employee;
 import com.xathordroid.springapitest.repository.CustomerRepository;
-import com.xathordroid.springapitest.repository.EmployeeRepository;
 import com.xathordroid.springapitest.resource.domain.RandomApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +21,6 @@ public class SpringApiTestApplication {
 	private static final boolean ENABLE_COMMAND_LINE_RUNNER_LIST_BEANS = false;
 	private static final boolean ENABLE_COMMAND_LINE_RUNNER_CONSUME_REST = false;
 	private static final boolean ENABLE_COMMAND_LINE_RUNNER_DEMO_JPA_1 = false;
-	private static final boolean ENABLE_COMMAND_LINE_RUNNER_DEMO_JPA_2 = false;
 
 	private static final Logger log = LoggerFactory.getLogger(SpringApiTestApplication.class); 
 	
@@ -99,17 +96,6 @@ public class SpringApiTestApplication {
 			});
 			log.info("");
 		};
-		else
-			return null;
-	}
-	
-	@Bean
-	public CommandLineRunner initDatabase(EmployeeRepository repository) {
-		if (ENABLE_COMMAND_LINE_RUNNER_DEMO_JPA_2)
-			return args -> {
-				log.info("Preloading " + repository.save(new Employee("Bilbo", "Baggins", "burglar")));
-				log.info("Preloading " + repository.save(new Employee("Frodo", "Baggins", "thief")));
-			};
 		else
 			return null;
 	}
